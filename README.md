@@ -17,3 +17,12 @@ npm install
 ```
 npm run dev
 ```
+## How to build Docker image and spin up local container
+1. Run the following command in the root directory. Change IMAGE_NAME for any name you want.
+```
+docker build -t IMAGE_NAME .
+```
+2. Run the container:
+```
+docker run -p 8080:8080 IMAGE_NAME
+```
