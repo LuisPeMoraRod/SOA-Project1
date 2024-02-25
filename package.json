@@ -2,9 +2,11 @@
   "name": "maridaje-api",
   "version": "1.0.0",
   "description": "RESTfull API used as a food-pairing engine",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/LuisPeMoraRod/SOA-Project1/issues"
   },
-  "homepage": "https://github.com/LuisPeMoraRod/SOA-Project1#readme"
+  "homepage": "https://github.com/LuisPeMoraRod/SOA-Project1#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
 }

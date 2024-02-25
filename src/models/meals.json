@@ -1,0 +1,23 @@
+{
+  "meals": [
+    {
+      "name": "Arroz con pollo"
+    },
+    {
+      "name": "Rice and beans"
+    }
+  ],
+  "desserts": [
+    {
+      "name": "Arroz con leche"
+    },
+    {
+      "name": "Tiramisú"
+    }
+  ],
+  "drinks": [
+    {
+      "name": "Cerveza"
+    }
+  ]
+}
