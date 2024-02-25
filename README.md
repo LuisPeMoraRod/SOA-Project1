@@ -1,6 +1,6 @@
 # SOA - Project 1
 
-RESTfull API used as a food-pairing engine
+RESTful API used as a food-pairing engine
 
 ## How to run app in local environment
 
