@@ -17,18 +17,25 @@ npm install
 ```
 npm run dev
 ```
+
 ## How to build Docker image and spin up local container
-1. Run the following command in the root directory. Change IMAGE_NAME for any name you want.
+
+1. Run the following command in the root directory. Change `IMAGE_NAME` and `CONTAINER_NAME` for any name you want.
+
 ```
 docker build -t IMAGE_NAME .
 ```
+
 2. Run the container:
+
 ```
-docker run -p 8080:8080 IMAGE_NAME
+docker run --name CONTAINER_NAME -p 8080:80 IMAGE_NAME
 ```
 
 ## How to build and run container with nodemon for local development
+
 1. Run the following command to execute Docker Compose to build a service with nodemon inside the container:
+
 ```
 docker compose up
 ```
