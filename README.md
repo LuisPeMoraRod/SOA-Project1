@@ -26,3 +26,9 @@ docker build -t IMAGE_NAME .
 ```
 docker run -p 8080:8080 IMAGE_NAME
 ```
+
+## How to build and run container with nodemon for local development
+1. Run the following command to execute Docker Compose to build a service with nodemon inside the container:
+```
+docker compose up
+```
