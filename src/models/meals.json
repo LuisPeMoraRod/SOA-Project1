@@ -5,6 +5,9 @@
     },
     {
       "name": "Rice and beans"
+    },
+    {
+      "name": "Chifrijo"
     }
   ],
   "desserts": [
@@ -13,11 +16,21 @@
     },
     {
       "name": "Tiramisú"
+    },
+    {
+      "name": "Cajeta"
     }
   ],
   "drinks": [
     {
+      "name": "Coca Cola"
+    },
+    {
+      "name": "Hiel"
+    },
+    {
       "name": "Cerveza"
     }
+    
   ]
 }
