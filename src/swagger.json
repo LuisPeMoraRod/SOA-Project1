@@ -1,19 +1,49 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Food Pairing API",
+      "title": "Food Pairing API Gr6" ,
       "version": "1.0.0",
       "description": "API documentation "
     },
     "paths": {
       "/recommendation/custom": {
         "get": {
-          "summary": "Meal require to food pairing",
+          "summary": "Get meal paring recommendations according to our Food Pairing Data base",
           "parameters": [
             {
-              "name": "Meal",
+              "name": "meal",
               "in": "query",
-              "description": "Name of the meal you want recommendations  for",
+              "description": "Meal requiered for food pairing",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "400": {
+                "description": "Bad Request response"
+              },
+            "404": {
+                "description": "Not Found response"
+              },
+            "500": {
+              "description": "Internal Service Error response"
+            }
+          }
+        }
+      },
+      "/recommendation/external": {
+        "get": {
+          "summary": "Get meal paring recommendations according to a third party API",
+          "parameters": [
+            {
+              "name": "meal",
+              "in": "query",
+              "description": "Meal requiered for food pairing",
               "required": true,
               "schema": {
                 "type": "string"
@@ -30,14 +60,14 @@
           }
         }
       },
-      "/recommendation/external": {
+      "/recommendation/open_ai": {
         "get": {
-          "summary": "Get default documentation according to our Food Pairing Data base",
+          "summary": "Get meal paring recommendations according to artifical intelligence",
           "parameters": [
             {
               "name": "meal",
               "in": "query",
-              "description": "Name of the meal you want recommendations  for",
+              "description": "Meal requiered for food pairing",
               "required": true,
               "schema": {
                 "type": "string"
@@ -48,9 +78,15 @@
             "200": {
               "description": "Successful response"
             },
+            "400": {
+                "description": "Bad Request response"
+              },
             "404": {
-                "description": "Not found response"
-              }
+                "description": "Not Found response"
+              },
+            "500": {
+              "description": "Internal Service Error response"
+            }
           }
         }
       }
