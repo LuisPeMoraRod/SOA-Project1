@@ -15,34 +15,58 @@ const getRecommendationAI = async (req, res) => {
 
   console.log("Query params: ", query);
 
-  var description = "";
-  var param = "";
+  var response = {};
 
   if (query.meal) {
-    description = "You are an expert chef and have to give recommendations for meals to go with in spanish.\
-    I need you to give me the answer in JSON style example, Dessert: Just the name of the dessert, Drink: Just the name of the drink.";
-    param = query.meal
+    first = "drink";
+    second = "dessert";
+    param = query.drink;
     
   } else if (query.dessert) {
-    description = "You are an expert chef and have to give recommendations for desserts to go with in spanish.\
-    I need you to give me the answer in JSON style example, Meal: Just the name of the meal, Drink: Just the name of the drink.";
+    first = "meal";
+    second = "drink";
+    param = query.drink;
+  
+  } else if (query.drink) {
+    first = "meal";
+    second = "dessert";
+    param = query.drink;
+
+  }
+
+  const firstRequest = await openai.chat.completions.create({
+    messages: [{ role: "system", content: "You are an expert chef and have to give recommendations for meals to go with in spanish. JUST THE NAME, NO EXTRA TEXT"},
+    {"role": "user", "content": `What ${first} do you recommend to go with ${param}`}],
+    model: "gpt-3.5-turbo",
+  });
+
+  const secondRequest = await openai.chat.completions.create({
+    messages: [{ role: "system", content: "You are an expert chef and have to give recommendations for meals to go with in spanish. JUST THE NAME, NO EXTRA TEXT"},
+    {"role": "user", "content": `What ${second} do you recommend to go with ${param}`}],
+    model: "gpt-3.5-turbo",
+  });
+
+
+  if (query.meal) {
+    response.drink = firstRequest.choices[0].message.content
+    response.dessert = secondRequest.choices[0].message.content
+    param = query.meal 
+    
+  } else if (query.dessert) {
+    response.meal = firstRequest.choices[0].message.content
+    response.drink = secondRequest.choices[0].message.content
     param = query.dessert
   
   } else if (query.drink) {
-    description = "You are an expert chef and have to give recommendations for drinks to go with in spanish.\
-    I need you to give me the answer in JSON style example, Meal: Just the name of the meal, Dessert: Just the name of the dessert.";
+    response.meal = firstRequest.choices[0].message.content
+    response.dessert = secondRequest.choices[0].message.content
     param = query.drink
 
   }
 
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: "system", content: description},
-    {"role": "user", "content": param}],
-    model: "gpt-3.5-turbo",
-  });
+  response.message = `Para acompañar ${param}, recomendamos ${firstRequest.choices[0].message.content} con ${secondRequest.choices[0].message.content}!`
 
-  console.log(completion.choices[0].message.content);
-  return res.status(statusCodes.OK).json(JSON.parse(completion.choices[0].message.content));
+  return res.status(statusCodes.OK).json(response);
 };
 
 module.exports = {
