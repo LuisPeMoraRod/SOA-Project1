@@ -5,4 +5,4 @@ RUN npm install
 RUN npm install -g nodemon
 COPY . /app
 CMD ["node", "src/server.js"]
-EXPOSE 80
+EXPOSE 8080

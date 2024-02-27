@@ -1,9 +1,9 @@
 services:
   app:
     build: .
-    container_name: maridaje-dev
+    container_name: maridaje-api
     command: nodemon src/server.js
     ports:
-      - 8080:80
+      - 8080:8080
     volumes:
       - .:/app
