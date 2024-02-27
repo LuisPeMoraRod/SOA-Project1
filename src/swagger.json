@@ -1,17 +1,17 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Your API Documentation",
+      "title": "Food Pairing API",
       "version": "1.0.0",
-      "description": "API Documentation for your project"
+      "description": "API documentation "
     },
     "paths": {
-      "/custom": {
+      "/recommendation/custom": {
         "get": {
-          "summary": "Get default documentation accordingg to our Food Pairing Data base",
+          "summary": "Meal require to food pairing",
           "parameters": [
             {
-              "name": "meal",
+              "name": "Meal",
               "in": "query",
               "description": "Name of the meal you want recommendations  for",
               "required": true,
@@ -30,9 +30,9 @@
           }
         }
       },
-      "/external": {
+      "/recommendation/external": {
         "get": {
-          "summary": "Get default documentation accordingg to our Food Pairing Data base",
+          "summary": "Get default documentation according to our Food Pairing Data base",
           "parameters": [
             {
               "name": "meal",
