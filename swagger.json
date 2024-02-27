@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Your API Documentation",
+      "version": "1.0.0",
+      "description": "API Documentation for your project"
+    },
+    "paths": {
+      "/custom": {
+        "get": {
+          "summary": "Get default documentation accordingg to our Food Pairing Data base",
+          "parameters": [
+            {
+              "name": "meal",
+              "in": "query",
+              "description": "Name of the meal you want recommendations  for",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "404": {
+                "description": "Not found response"
+              }
+          }
+        }
+      },
+      "/external": {
+        "get": {
+          "summary": "Get default documentation accordingg to our Food Pairing Data base",
+          "parameters": [
+            {
+              "name": "meal",
+              "in": "query",
+              "description": "Name of the meal you want recommendations  for",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "404": {
+                "description": "Not found response"
+              }
+          }
+        }
+      }
+    }
+  }
+  
