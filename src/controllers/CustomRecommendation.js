@@ -11,6 +11,7 @@ const getRecommendation = (req, res) => {
   const query = req.query; // query params
 
   console.log("Query params: ", query);
+  var response = {}
 
   let recommendationMessage = "";
 
@@ -21,9 +22,10 @@ const getRecommendation = (req, res) => {
       return res.status(statusCodes.NOT_FOUND).json({ error: "Meal not found" });
       
     }
-    const dessert = data.desserts[mealIndex];
-    const drink = data.drinks[mealIndex];
-    recommendationMessage = `Para acompañar ${query.meal} le recomendamos ${dessert.name} y ${drink.name}`;
+    response.meal = data.meals[mealIndex];
+    response.dessert = data.desserts[mealIndex];
+    response.drink = data.drinks[mealIndex];
+    response.recommendationMessage = `Para acompañar ${query.meal} le recomendamos ${response.dessert.name} y ${response.drink.name}`;
   }
   else if (query.dessert) {
 
@@ -31,9 +33,10 @@ const getRecommendation = (req, res) => {
     if (dessertIndex === -1) {
       return res.status(statusCodes.NOT_FOUND).json({ error: "Dessert not found" });
     }
-    const meal = data.meals[dessertIndex];
-    const drink = data.drinks[dessertIndex];
-    recommendationMessage = `Para acompañar ${query.dessert} le recomendamos ${meal.name} y ${drink.name}`;
+    response.meal = data.meals[dessertIndex];
+    response.dessert = data.desserts[dessertIndex];
+    response.drink = data.drinks[dessertIndex];
+    response.recommendationMessage = `Para acompañar ${query.dessert} le recomendamos ${response.meal.name} y ${response.drink.name}`;
     
   }
   else if (query.drink) {
@@ -42,16 +45,17 @@ const getRecommendation = (req, res) => {
     if (drinkIndex === -1) {
       return res.status(statusCodes.NOT_FOUND).json({ error: "Drink not found" });
     }
-    const meal = data.meals[drinkIndex];
-    const dessert = data.desserts[drinkIndex];
-    recommendationMessage = `Para acompañar ${query.drink} le recomendamos ${meal.name} y ${dessert.name}`;
+    response.meal = data.meals[drinkIndex];
+    response.dessert = data.desserts[drinkIndex];
+    response.drink = data.drinks[drinkIndex];
+    response.recommendationMessage = `Para acompañar ${query.drink} le recomendamos ${response.meal.name} y ${response.dessert.name}`;
 
   }
   else {
     return res.status(statusCodes.BAD_REQUEST).json({ error: "Invalid query" });
   }
 
-  return res.status(statusCodes.OK).json({ recommendation: recommendationMessage });
+  return res.status(statusCodes.OK).json(response);
 };
 
 module.exports = {
