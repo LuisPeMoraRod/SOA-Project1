@@ -8,7 +8,7 @@
     "paths": {
       "/recommendation/custom": {
         "get": {
-          "summary": "Get meal paring recommendations according to our Food Pairing Data base",
+          "summary": "Get meal paring recommendations according to our Food Pairing Database",
           "parameters": [
             {
               "name": "meal",
@@ -77,13 +77,31 @@
       },
       "/recommendation/external": {
         "get": {
-          "summary": "Get meal paring recommendations according to a third party API",
+          "summary": "Get meal paring recommendations according to third party API",
           "parameters": [
             {
               "name": "meal",
               "in": "query",
-              "description": "Meal requiered for food pairing",
-              "required": true,
+              "description": "Food requiered for food pairing",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "drink",
+              "in": "query",
+              "description": "Food requiered for food pairing",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+            ,{
+              "name": "dessert",
+              "in": "query",
+              "description": "Food requiered for food pairing",
+              "required": false,
               "schema": {
                 "type": "string"
               }
@@ -91,23 +109,68 @@
           ],
           "responses": {
             "200": {
-              "description": "Successful response"
-            },
-            "404": {
-                "description": "Not found response"
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "meal": {
+                        "type": "string"
+                      },
+                      "drink": {
+                        "type": "string"
+                      },
+                      "dessert": {
+                        "type": "string"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
               }
+            },
+            "400": {
+                "description": "Bad Request response"
+              },
+            "404": {
+                "description": "Not Found response"
+              },
+            "500": {
+              "description": "Internal Service Error response"
+            }
           }
         }
       },
       "/recommendation/open_ai": {
         "get": {
-          "summary": "Get meal paring recommendations according to artifical intelligence",
+          "summary": "Get meal paring recommendations according to artificial intelligence",
           "parameters": [
             {
               "name": "meal",
               "in": "query",
-              "description": "Meal requiered for food pairing",
-              "required": true,
+              "description": "Food requiered for food pairing",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "drink",
+              "in": "query",
+              "description": "Food requiered for food pairing",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+            ,{
+              "name": "dessert",
+              "in": "query",
+              "description": "Food requiered for food pairing",
+              "required": false,
               "schema": {
                 "type": "string"
               }
@@ -115,7 +178,28 @@
           ],
           "responses": {
             "200": {
-              "description": "Successful response"
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "meal": {
+                        "type": "string"
+                      },
+                      "drink": {
+                        "type": "string"
+                      },
+                      "dessert": {
+                        "type": "string"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             },
             "400": {
                 "description": "Bad Request response"
