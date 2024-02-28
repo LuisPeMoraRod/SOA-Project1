@@ -13,8 +13,26 @@
             {
               "name": "meal",
               "in": "query",
-              "description": "Meal requiered for food pairing",
-              "required": true,
+              "description": "Food requiered for food pairing",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "drink",
+              "in": "query",
+              "description": "Food requiered for food pairing",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+            ,{
+              "name": "dessert",
+              "in": "query",
+              "description": "Food requiered for food pairing",
+              "required": false,
               "schema": {
                 "type": "string"
               }
@@ -22,7 +40,28 @@
           ],
           "responses": {
             "200": {
-              "description": "Successful response"
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "meal": {
+                        "type": "string"
+                      },
+                      "drink": {
+                        "type": "string"
+                      },
+                      "dessert": {
+                        "type": "string"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             },
             "400": {
                 "description": "Bad Request response"
