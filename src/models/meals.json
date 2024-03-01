@@ -1,5 +1,5 @@
 {
-  "meals": [
+  "meal": [
     {
       "name": "Arroz con pollo"
     },
@@ -8,9 +8,18 @@
     },
     {
       "name": "Chifrijo"
+    },
+    {
+      "name": "Patacones"
+    },
+    {
+      "name": "Gallo pinto"
+    },
+    {
+      "name": "Casado"
     }
   ],
-  "desserts": [
+  "dessert": [
     {
       "name": "Arroz con leche"
     },
@@ -19,9 +28,18 @@
     },
     {
       "name": "Cajeta"
+    },
+    {
+      "name": "Flan"
+    },
+    {
+      "name": "Pastel de tres leches"
+    },
+    {
+      "name": "Mousse de chocolate"
     }
   ],
-  "drinks": [
+  "drink": [
     {
       "name": "Coca Cola"
     },
@@ -30,7 +48,15 @@
     },
     {
       "name": "Cerveza"
+    },
+    {
+      "name": "Jugos naturales"
+    },
+    {
+      "name": "Jugo de Naranja"
+    },
+    {
+      "name": "Café"
     }
-    
   ]
 }
