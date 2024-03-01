@@ -13,16 +13,6 @@ const getExternalRecommendation = (req, res) => {
   console.log("Query params: ", query);
 
   //process request
-  fetch("request")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("HTTP error, status = " + response.status);
-        }
-        return response.json();
-    })
-    .then(data => data)
-    .catch(error => console.error("Error fetching data:", error));
-
   return res.status(statusCodes.OK).json(data);
 };
 
