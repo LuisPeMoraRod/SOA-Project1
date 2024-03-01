@@ -1,3 +1,4 @@
+const data = require("../models/meals.json");
 const statusCodes = require("../constants/statusCodes");
 
 /**
