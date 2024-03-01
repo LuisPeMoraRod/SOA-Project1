@@ -1,23 +1,6 @@
 {
-  "meals": [
-    {
-      "name": "Arroz con pollo"
-    },
-    {
-      "name": "Rice and beans"
-    }
-  ],
-  "desserts": [
-    {
-      "name": "Arroz con leche"
-    },
-    {
-      "name": "Tiramisú"
-    }
-  ],
-  "drinks": [
-    {
-      "name": "Cerveza"
-    }
-  ]
+    "meal": "tacos al pastor",
+    "drink": "sangría",
+    "dessert": "flan de caramelo",
+    "message": "Para acompañar tacos al pastor, recomendamos sangría con flan de caramelo"
 }
