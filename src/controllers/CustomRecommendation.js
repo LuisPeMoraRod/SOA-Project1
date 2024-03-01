@@ -1,5 +1,6 @@
 const data = require("../models/meals.json");
 const statusCodes = require("../constants/statusCodes");
+const helpers = require("../helpers/RecommendationHelpers")
 
 /**
  * Handle custom recommendation request
@@ -33,9 +34,9 @@ const getRecommendation = (req, res, next) => {
 
       if (firstParameterIndex === secondParameterIndex) {
       
-        const missingParameter = getTwoMissingParameter(firstParameter, secondParameter);
+        const missingParameter = helpers.getOneMissingParameter(firstParameter, secondParameter);
         const missingParameterValue = data[missingParameter][firstParameterIndex].name
-        response = writeResponse(response, firstParameter, secondParameter, missingParameter, firstParameterValue, secondParameterValue, missingParameterValue)
+        response = helpers.writeResponse(response, firstParameter, secondParameter, missingParameter, firstParameterValue, secondParameterValue, missingParameterValue)
       }
       else {
         return notFoundError(next);
@@ -53,10 +54,10 @@ const getRecommendation = (req, res, next) => {
     else {
 
       const firstParameterIndex = data[firstParameter].findIndex(item => item.name === firstParameterValue);
-      const missingParameters = getOneMissingParameter(firstParameter);
+      const missingParameters = helpers.getTwoMissingParameter(firstParameter);
       const missingParameterValue1 = data[missingParameters[0]][firstParameterIndex].name
       const missingParameterValue2 = data[missingParameters[1]][firstParameterIndex].name
-      response = writeResponse(response, firstParameter, missingParameters[0], missingParameters[1], firstParameterValue, missingParameterValue1, missingParameterValue2)
+      response = helpers.writeResponse(response, firstParameter, missingParameters[0], missingParameters[1], firstParameterValue, missingParameterValue1, missingParameterValue2)
     
     }
   }
@@ -70,28 +71,6 @@ function notFoundError(next) {
   err.status = statusCodes.NOT_FOUND;
   return next(err);
   
-};
-
-const writeResponse = (response, key1, key2, key3, value1, value2, value3) => {
-  response[key1] = value1;
-  response[key2] = value2;
-  response[key3] = value3;
-  return response
-}
-
-const getTwoMissingParameter = (foodType1, foodType2) => {
-  const foodTypes = ["meal", "dessert", "drink"];
-
-  const missingFoodType = foodTypes.find(type => type !== foodType1 && type !== foodType2);
-  return missingFoodType;
-};
-
-const getOneMissingParameter = (foodType) => {
-  const foodTypes = ["meal", "dessert", "drink"];
-
-  const missingFoodTypes = foodTypes.filter(type => type !== foodType);
-  return missingFoodTypes;
-
 };
 
 
