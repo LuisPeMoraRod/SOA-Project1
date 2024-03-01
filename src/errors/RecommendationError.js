@@ -15,14 +15,14 @@ const queryValidatorMiddleware = (req, res, next) => {
   
     if (queryParams.length > 2 || queryParams.length === 0) {
       const err = new Error("Invalid number of query parameters. Must be between 1 and 2.");
-      err.status = 400;
+      err.status = statusCodes.BAD_REQUEST;
       return next(err);
     }
     
     for (const param of queryParams) {
       if (!validParams.includes(param)) {
         const err = new Error(`Invalid query parameter value '${param}'. Must be one of: meal, drink, dessert.`);
-        err.status = 400;
+        err.status = statusCodes.BAD_REQUEST;
         return next(err);
       }
     }
