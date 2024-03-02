@@ -14,6 +14,5 @@ const { getRecommendationAI } = require("../controllers/RecommendationAI");
 router.get("/custom", getRecommendation);
 router.get("/external", getExternalRecommendation);
 router.get("/open_ai", getRecommendationAI);
-console.log("antes");
 
 module.exports = router;
