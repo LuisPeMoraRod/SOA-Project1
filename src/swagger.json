@@ -64,13 +64,13 @@
               }
             },
             "400": {
-                "description": "Bad Request response"
+                "description": "Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of:  meal, drink, dessert. "
               },
             "404": {
-                "description": "Not Found response"
+                "description": "Not Found response. Could not find a recommendation for that meal "
               },
             "500": {
-              "description": "Internal Service Error response"
+              "description": "Internal Service Error response. Unexpected error."
             }
           }
         }
@@ -133,14 +133,14 @@
               }
             },
             "400": {
-                "description": "Bad Request response"
-              },
-            "404": {
-                "description": "Not Found response"
-              },
-            "500": {
-              "description": "Internal Service Error response"
-            }
+              "description": "Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of:  meal, drink, dessert. "
+            },
+          "404": {
+              "description": "Not Found response. Could not find a recommendation for that meal "
+            },
+          "500": {
+            "description": "Internal Service Error response. Unexpected error."
+          }
           }
         }
       },
@@ -202,14 +202,14 @@
               }
             },
             "400": {
-                "description": "Bad Request response"
-              },
-            "404": {
-                "description": "Not Found response"
-              },
-            "500": {
-              "description": "Internal Service Error response"
-            }
+              "description": "Bad Request response. Invalid number of query parameters. Must be between 1 and 2. Or invalid query values, must be one of:  meal, drink, dessert. "
+            },
+          "404": {
+              "description": "Not Found response. Could not find a recommendation for that meal "
+            },
+          "500": {
+            "description": "Internal Service Error response. Unexpected error."
+          }
           }
         }
       }
