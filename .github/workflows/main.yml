@@ -31,10 +31,14 @@ jobs:
           uses: 'azure/aci-deploy@v1'
           with:
             resource-group: ${{ secrets.RESOURCE_GROUP }}
-            dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
+            dns-name-label: soa41d-project1
             image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/maridaje-api-prod:${{ github.sha }}
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+            cpu: 1
+            ip-address: Public
+            memory: 1
+            ports: 80
             name: maridaje-app
             location: 'east us'
