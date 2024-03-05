@@ -1,7 +1,7 @@
 {
   "meal": [
     {
-      "name": "Arroz con pollo"
+      "name": "Pizza"
     },
     {
       "name": "Rice and beans"
@@ -21,7 +21,7 @@
   ],
   "dessert": [
     {
-      "name": "Arroz con leche"
+      "name": "Helado de cajeta"
     },
     {
       "name": "Tiramisú"
@@ -41,7 +41,7 @@
   ],
   "drink": [
     {
-      "name": "Coca Cola"
+      "name": "Jugo de mango"
     },
     {
       "name": "Hiel"
