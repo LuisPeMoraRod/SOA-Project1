@@ -30,19 +30,25 @@ async function fetchData(url, next) {
  * @returns
  */
 
-const getClassmatesRecommendation = (req, res) => {
+const getClassmatesRecommendation = (req, res, next) => {
   const query = req.query;
   let responseApi = {};
 
   const queryLength = Object.keys(query).length;
   const firstParameter = Object.keys(query)[0];
   const firstParameterValue = Object.values(query)[0];
-  let body = `?SourceType=Local&MealName1=${firstParameterValue}&CourseType1=${getTypes[firstParameter]}`;
+  if (firstParameterValue.length === 0){
+    return notFoundError(next)
+  }
+  let body = "?SourceType=Local&MealName1=${firstParameterValue}&CourseType1=${getTypes[firstParameter]}";
 
   if (queryLength === 2) {
     const secondParameter = Object.keys(query)[1];
     const secondParameterValue = Object.values(query)[1];
-    body += `&MealName2=${secondParameterValue}&CourseType2=${getTypes[secondParameter]}`;
+    if (secondParameterValue.length === 0){
+      return notFoundError(next)
+    }
+    body += "&MealName2=${secondParameterValue}&CourseType2=${getTypes[secondParameter]}";
   }
 
   const apiUrl = server + body;
@@ -87,6 +93,13 @@ const getClassmatesRecommendation = (req, res) => {
     });
 };
 
+function notFoundError(next) {
+
+  const err = new Error("Could not find a recommendation for that meal");
+  err.status = statusCodes.NOT_FOUND;
+  return next(err);
+  
+};
 
 module.exports = {
   getClassmatesRecommendation,
