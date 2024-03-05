@@ -1,5 +1,5 @@
 const statusCodes = require("../constants/statusCodes");
-const getTypes = require("../constants/externalDictionary")
+const getTypes = require("../constants/classmatesRecommendationDict")
 const helpers = require("../helpers/RecommendationHelpers")
 
 const server = "http://soadproyecto1.eastus.azurecontainer.io:44319/api/Meal"
@@ -30,7 +30,7 @@ async function fetchData(url, next) {
  * @returns
  */
 
-const getExternalRecommendation = (req, res) => {
+const getClassmatesRecommendation = (req, res) => {
   const query = req.query;
   let responseApi = {};
 
@@ -89,5 +89,5 @@ const getExternalRecommendation = (req, res) => {
 
 
 module.exports = {
-  getExternalRecommendation,
+  getClassmatesRecommendation,
 };
