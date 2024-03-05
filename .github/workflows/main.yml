@@ -33,6 +33,7 @@ jobs:
             resource-group: ${{ secrets.RESOURCE_GROUP }}
             dns-name-label: soa41d-project1
             image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/maridaje-api-prod:${{ github.sha }}
+            environment-variables: OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
