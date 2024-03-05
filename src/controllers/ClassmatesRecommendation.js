@@ -40,7 +40,7 @@ const getClassmatesRecommendation = (req, res, next) => {
   if (firstParameterValue.length === 0){
     return notFoundError(next)
   }
-  let body = "?SourceType=Local&MealName1=${firstParameterValue}&CourseType1=${getTypes[firstParameter]}";
+  let body = `?SourceType=Local&MealName1=${firstParameterValue}&CourseType1=${getTypes[firstParameter]}`;
 
   if (queryLength === 2) {
     const secondParameter = Object.keys(query)[1];
@@ -48,7 +48,7 @@ const getClassmatesRecommendation = (req, res, next) => {
     if (secondParameterValue.length === 0){
       return notFoundError(next)
     }
-    body += "&MealName2=${secondParameterValue}&CourseType2=${getTypes[secondParameter]}";
+    body += `&MealName2=${secondParameterValue}&CourseType2=${getTypes[secondParameter]}`;
   }
 
   const apiUrl = server + body;
@@ -100,7 +100,6 @@ function notFoundError(next) {
   return next(err);
   
 };
-
 module.exports = {
   getClassmatesRecommendation,
 };
