@@ -2,6 +2,7 @@ const statusCodes = require("../constants/statusCodes");
 const helpers = require("../helpers/RecommendationHelpers")
 const OpenAI = require( "openai");
 const openai = new OpenAI();
+openai.api_key = process.env.OPENAI_API_KEY;
 
 /**
  * Handle AI recommendation request
