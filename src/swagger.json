@@ -75,9 +75,9 @@
           }
         }
       },
-      "/recommendation/external": {
+      "/recommendation/classmates": {
         "get": {
-          "summary": "Get meal paring recommendations according to third party API",
+          "summary": "Get meal paring recommendations according to classmate's API",
           "parameters": [
             {
               "name": "meal",

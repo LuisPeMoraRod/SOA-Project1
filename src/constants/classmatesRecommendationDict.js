@@ -1,4 +1,4 @@
-const externalRecommendationDict = {
+const classmatesRecommendationDict = {
     "meal":"MainCourse",
     "drink":"Drink",
     "dessert":"Dessert",
@@ -7,4 +7,4 @@ const externalRecommendationDict = {
     "Dessert":"dessert",
 }
 
-module.exports = externalRecommendationDict;
+module.exports = classmatesRecommendationDict;
