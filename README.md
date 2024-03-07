@@ -26,7 +26,7 @@ npm run dev
 docker build -t IMAGE_NAME .
 ```
 
-2. Run the container:
+2. Run the container
 
 ```
 docker run --name CONTAINER_NAME -p 8080:80 IMAGE_NAME
